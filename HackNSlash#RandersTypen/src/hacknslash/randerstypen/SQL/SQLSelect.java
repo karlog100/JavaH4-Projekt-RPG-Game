@@ -22,6 +22,7 @@ public class SQLSelect extends SQLWorker {
      * @throws SQLException
      */
     public SQLSelect(String SQLStatement) throws SQLException{
+        SQLStatement.replaceAll("['\"\\\\]", "\\\\$0");
         SQLConn();
         Statement stmt = null;
         ResultSet Result = null;

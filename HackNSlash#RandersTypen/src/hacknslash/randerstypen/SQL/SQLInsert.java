@@ -21,9 +21,9 @@ public class SQLInsert extends SQLWorker {
      * @throws SQLException
      */
     public SQLInsert(String SQLStatement) throws SQLException {
+        SQLStatement.replaceAll("['\"\\\\]", "\\\\$0");
         SQLConn();
         Statement stmt = null;
-        
         System.out.println("Executing Statement...");
         stmt = conn.createStatement();
         stmt.executeUpdate(SQLStatement);
